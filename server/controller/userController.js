@@ -7,8 +7,8 @@ export const userSignup = async (req, res) => {
       return res.status(401).json({ message: "You already have an account." });
     }
 
-    const userDetails = req.body;
-    const newUser = new User(userDetails);
+    const user = req.body;
+    const newUser = new User(user);
     await newUser.save();
 
     res.status(200).json({ message: userDetails });

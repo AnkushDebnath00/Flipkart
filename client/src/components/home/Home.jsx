@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 
 function Home() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
