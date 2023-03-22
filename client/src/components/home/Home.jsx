@@ -5,7 +5,7 @@ import { getProducts } from "../../redux/actions/productActions";
 // components
 import Navbar from "./Navbar";
 import Banner from "./Banner";
-import Slide from "./Slide";
+import SlideCompile from "./SlideCompile";
 import { Box } from "@mui/material";
 
 function Home() {
@@ -18,12 +18,13 @@ function Home() {
   //   const getProducts = useSelector((state) => state.getProducts);
   //   const { products } = getProducts;
   const { products } = useSelector((state) => state.getProducts);
+  console.log(products);
 
   return (
     <Box className="bg-[#f1f3f6]">
       <Navbar />
       <Banner />
-      <Slide products={products} />
+      <SlideCompile products={products} />
     </Box>
   );
 }
