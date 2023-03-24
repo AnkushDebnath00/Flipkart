@@ -41,13 +41,13 @@ function Banner() {
       responsive={responsive}
       className="mx-auto mt-2 w-[99%]"
     >
-      {bannerData.map((data) => {
+      {bannerData?.map((data) => {
         return (
           <img
             key={data.id}
             src={data.url}
             alt="bannerImage"
-            className="min-h-[170px] w-full object-cover md:min-h-[300px]"
+            className="min-h-[170px] w-full object-cover md:min-h-[280px]"
           />
         );
       })}
