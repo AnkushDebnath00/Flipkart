@@ -2,34 +2,20 @@ import React from "react";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Box, IconButton, Button, Typography } from "@mui/material";
+import { Box, Divider, Button, Typography } from "@mui/material";
+import Countdown from "react-countdown";
 // import Arrow from "./Arrow";
 
-function Slide({ heading, products, bgurl }) {
-  //   const CustomLeftArrow = ({ onClick }) => {
-  //     return (
-  //       <IconButton
-  //         style={{ pointer: "cursor", htmlColor: "red" }}
-  //         onClick={onClick}
-  //       >
-  //         <Arrow />
-  //       </IconButton>
-  //     );
-  //   };
-
-  //   const CustomRightArrow = ({ onClick }) => {
-  //     return (
-  //       <IconButton
-  //         style={{
-  //           pointer: "cursor",
-  //           htmlColor: "red",
-  //         }}
-  //         onClick={onClick}
-  //       >
-  //         <Arrow />
-  //       </IconButton>
-  //     );
-  //   };
+function SlideOld({ heading, products, timer, sub }) {
+  const timerURL =
+    "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg";
+  const renderer = ({ hours, minutes, seconds }) => {
+    return (
+      <Box variant="span" className="ml-2 text-xs font-light text-[7f7f7f]">
+        {hours}:{minutes}:{seconds} Left
+      </Box>
+    );
+  };
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -51,15 +37,28 @@ function Slide({ heading, products, bgurl }) {
   };
 
   return (
-    <Box className="mx-auto mt-2 flex h-[250px] w-[99%] flex-row md:h-[350px]">
-      {/* <Box
-        className="h-10 max-w-[25%] bg-[url('https://rukminim1.flixcart.com/fk-p-flap/278/278/image/7593e7b6640822c1.jpg?q=90')] bg-cover bg-bottom bg-no-repeat
-"
-      > */}
+    <Box className="mx-auto mt-2 flex h-[250px] w-[99%] flex-col bg-white shadow-xl md:h-[350px]">
       <Box
-        className={`mt-2 flex w-[30%] flex-col items-center justify-center bg-white ${bgurl} bg-contain bg-bottom bg-no-repeat pt-3 text-[1.25rem] font-normal shadow-xl md:w-[20%] xl:w-[15%] xl:text-[1.6rem]`}
+        className={`mt-2 flex flex-row items-center justify-between bg-contain bg-bottom bg-no-repeat px-4 py-2 text-[1.25rem] font-normal xl:text-[1.6rem]`}
       >
-        <h3 className="mb-4 text-center">{heading}</h3>
+        <Box className="flex flex-row items-center">
+          <Box className="flex flex-col items-start justify-center">
+            <Typography className="font-xl mr-4 text-center font-medium">
+              {heading}
+            </Typography>
+            {sub && (
+              <Typography className="mr-4 text-center text-sm opacity-60">
+                {sub}
+              </Typography>
+            )}
+          </Box>
+          {timer && (
+            <Box className="mr-2 flex flex-row items-center text-[#7f7f7f]">
+              <img src={timerURL} style={{ width: 24 }} alt="time clock" />
+              <Countdown renderer={renderer} date={Date.now() + 42104321} />
+            </Box>
+          )}
+        </Box>
         <Button
           variant="contained"
           className="rounded-sm bg-[#2874f0] text-xs font-normal md:text-sm	"
@@ -67,10 +66,8 @@ function Slide({ heading, products, bgurl }) {
           View All
         </Button>
       </Box>
-      {/* </Box> */}
+      <Divider />
       <Carousel
-        // customLeftArrow={<CustomLeftArrow />}
-        // customRightArrow={<CustomRightArrow />}
         responsive={responsive}
         swipeable={true}
         draggable={false}
@@ -78,7 +75,7 @@ function Slide({ heading, products, bgurl }) {
         ssr={true}
         autoPlaySpeed={2000}
         keyBoardControl={true}
-        className="mt-2 w-[75%] bg-white shadow-xl md:w-[80%] xl:w-[85%]"
+        className="mt-2"
         centerMode={true}
       >
         {products?.map((data) => {
@@ -111,4 +108,4 @@ function Slide({ heading, products, bgurl }) {
   );
 }
 
-export default Slide;
+export default SlideOld;
