@@ -12,8 +12,9 @@ function Navbar() {
       <Box className="flex flex-row justify-start md:justify-evenly xl:px-[40px]">
         {navData.map((data) => {
           return (
-            <Box
+            <a
               key={data.text}
+              href={data.link ? data.link : "#"}
               className="mx-3 flex flex-shrink-0 flex-col justify-center"
             >
               <img
@@ -24,7 +25,7 @@ function Navbar() {
               <Typography className="text-center text-[13px] font-medium">
                 {data.text}
               </Typography>
-            </Box>
+            </a>
           );
         })}
       </Box>

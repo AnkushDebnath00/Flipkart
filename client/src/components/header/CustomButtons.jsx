@@ -17,7 +17,7 @@ function CustomButtons() {
       ) : (
         <Button
           variant="contained"
-          className="mx-5 rounded-none bg-white px-6 text-[#2874f0] md:px-10"
+          className="mx-5 rounded-sm bg-white px-6 text-[#2874f0] md:px-10"
           onClick={() => setOpen(true)}
         >
           Login

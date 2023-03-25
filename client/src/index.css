@@ -13,6 +13,7 @@
 
 * {
   @apply font-roboto;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

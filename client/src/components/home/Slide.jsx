@@ -3,9 +3,10 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Box, IconButton, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 // import Arrow from "./Arrow";
 
-function Slide({ heading, products, bgurl }) {
+function Slide({ heading, products, bgurl, idd }) {
   //   const CustomLeftArrow = ({ onClick }) => {
   //     return (
   //       <IconButton
@@ -51,7 +52,10 @@ function Slide({ heading, products, bgurl }) {
   };
 
   return (
-    <Box className="mx-auto mt-2 flex h-[250px] w-[99%] flex-row md:h-[350px]">
+    <Box
+      id={`${idd}`}
+      className="mx-auto mt-2 flex h-[250px] w-[99%] flex-row md:h-[350px]"
+    >
       {/* <Box
         className="h-10 max-w-[25%] bg-[url('https://rukminim1.flixcart.com/fk-p-flap/278/278/image/7593e7b6640822c1.jpg?q=90')] bg-cover bg-bottom bg-no-repeat
 "
@@ -83,27 +87,29 @@ function Slide({ heading, products, bgurl }) {
       >
         {products?.map((data) => {
           return (
-            <Box
-              key={data.id}
-              className="flex w-full cursor-pointer flex-col items-center justify-between p-[15px]"
-            >
-              <img
-                src={data.url}
-                alt="bannerImage"
-                className="contain h-[100px] w-auto hover:scale-105 md:h-[150px]"
-              />
-              <Box className="flex w-full flex-col items-center justify-end">
-                <Typography className="mt-3 text-center text-sm md:mt-6">
-                  {data.title.shortTitle}
-                </Typography>
-                <Typography className="mt-2 text-center text-xs font-light text-[#388e3c] ">
-                  {data.discount}
-                </Typography>
-                <Typography className="mobInvisible mt-2 text-center text-xs text-[#212121] opacity-[.6]">
-                  {data.tagline}
-                </Typography>
+            <Link key={data.id} to={`/product/${data.id}`}>
+              <Box
+                key={data.id}
+                className="flex w-full cursor-pointer flex-col items-center justify-between p-[15px]"
+              >
+                <img
+                  src={data.url}
+                  alt="bannerImage"
+                  className="contain h-[100px] w-auto transition-all hover:scale-105 md:h-[150px]"
+                />
+                <Box className="flex w-full flex-col items-center justify-end">
+                  <Typography className="mt-3 text-center text-sm md:mt-6">
+                    {data.title.shortTitle}
+                  </Typography>
+                  <Typography className="mt-2 text-center text-xs font-light text-[#388e3c] ">
+                    {data.discount}
+                  </Typography>
+                  <Typography className="mobInvisible mt-2 text-center text-xs text-[#212121] opacity-[.6]">
+                    {data.tagline}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
+            </Link>
           );
         })}
       </Carousel>

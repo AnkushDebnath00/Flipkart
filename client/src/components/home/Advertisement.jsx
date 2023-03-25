@@ -8,7 +8,7 @@ function Advertisement() {
       <img
         src="https://rukminim1.flixcart.com/flap/464/708/image/633789f7def60050.jpg?q=70"
         alt="Advertisement"
-        className="h-[250px] object-fill md:h-[350px]"
+        className="h-[280px] object-fill md:h-[380px]"
       />
     </Box>
   );

@@ -13,7 +13,7 @@ function Search(props) {
         minWidth: "200px",
         height: "36px",
       }}
-      className="mx-3 rounded-none"
+      className="mx-3 rounded-sm "
     >
       <Box className="flex justify-between">
         <InputBase
