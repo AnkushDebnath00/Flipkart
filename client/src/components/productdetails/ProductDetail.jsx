@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import { getProductDetails } from "../../redux/actions/productActions";
 
 function ProductDetail() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  let { id } = useParams();
+  // let { id } = useParams();
 
-  useEffect(() => {
-    dispatch(getProductDetails(id));
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   dispatch(getProductDetails(id));
+  // }, [dispatch, id]);
 
   return <div>ProductDetail</div>;
 }

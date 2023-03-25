@@ -9,7 +9,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 const reducers = combineReducers({
   getProducts: getProductsReducer,
-  getProductDetails: getProductDetailReducer,
+  // getProductDetails: getProductDetailReducer,
 });
 
 const middleware = [thunk];
