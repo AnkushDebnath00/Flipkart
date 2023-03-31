@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 
