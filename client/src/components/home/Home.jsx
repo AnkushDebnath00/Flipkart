@@ -18,7 +18,7 @@ function Home() {
   //   const getProducts = useSelector((state) => state.getProducts);
   //   const { products } = getProducts;
   const { products } = useSelector((state) => state.getProducts);
-  console.log(products);
+  // console.log(products);
 
   return (
     <Box className="bg-[#f1f3f6]">

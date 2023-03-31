@@ -83,3 +83,6 @@ export const imageURL = [
 
 export const adCovid =
   "https://rukminim1.flixcart.com/flap/3006/433/image/4789bc3aefd54494.jpg?q=50";
+
+export const superCoinUrl =
+  "https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50";
