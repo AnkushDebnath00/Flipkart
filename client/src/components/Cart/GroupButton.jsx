@@ -15,11 +15,17 @@ const GroupedButton = () => {
 
   return (
     <ButtonGroup>
-      <Button onClick={() => handleDecrement()} disabled={counter === 0}>
+      <Button
+        onClick={() => handleDecrement()}
+        disabled={counter === 0}
+        className="rounded-l-full"
+      >
         -
       </Button>
       <Button disabled>{counter}</Button>
-      <Button onClick={() => handleIncrement()}>+</Button>
+      <Button onClick={() => handleIncrement()} className="rounded-r-full">
+        +
+      </Button>
     </ButtonGroup>
   );
 };

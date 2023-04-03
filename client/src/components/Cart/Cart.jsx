@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { removeFromCart, addToCart } from "../../redux/actions/cartActions";
 import CartItem from "./CartItem";
-// import Price from "./Price";
+import Price from "./Price";
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 
 function Cart() {
   const cartDetails = useSelector((state) => state.cart);
@@ -37,25 +37,33 @@ function Cart() {
 
   return (
     <>
-      <Box className="mx-2 my-4 flex max-w-[98vw] flex-col md:mx-10 md:flex-row xl:mx-20">
-        {cartItems.length ? (
-          <Grid container>
-            <Grid item lg={9} md={9} sm={12} xs={12}>
-              <Box>
-                <Typography className="">
-                  My Cart({cartItems.length})
-                </Typography>
-              </Box>
-              {cartItems.map((item) => (
-                <CartItem item={item} key={item.id} />
-              ))}
+      <Box className=" min-h-[100vh] min-w-full overflow-hidden bg-[#f1f3f6]">
+        <Box className="mx-3 my-4 md:mx-10 xl:mx-24">
+          {cartItems.length ? (
+            <Grid container>
+              <Grid item lg={8} md={8} sm={12} xs={12} className="shadow-lg">
+                <Box>
+                  <Typography className="m-0 border-b-[2px] border-[#f0f0f0] bg-white px-3 pt-5 pb-2 text-lg font-semibold text-gray-700 md:px-12">
+                    My Cart({cartItems.length})
+                  </Typography>
+                </Box>
+                {cartItems.map((item) => (
+                  <CartItem item={item} key={item.id} />
+                ))}
+                <Box className="m-0 flex justify-end bg-white px-3 py-5 md:px-12">
+                  <Button className="rounded-sm bg-[#fb641b] px-12 py-3 text-white md:px-16">
+                    Place Order
+                  </Button>
+                </Box>
+              </Grid>
+              <Grid item lg={4} md={4} sm={12} xs={12}>
+                <Price cartItems={cartItems} />
+              </Grid>
             </Grid>
-            <Grid item lg={3} md={3} sm={12} xs={12}></Grid>
-            {/* <Price /> */}
-          </Grid>
-        ) : (
-          <Box>Empty</Box>
-        )}
+          ) : (
+            <Box>Empty</Box>
+          )}
+        </Box>
       </Box>
     </>
   );

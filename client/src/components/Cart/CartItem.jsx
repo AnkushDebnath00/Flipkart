@@ -1,41 +1,58 @@
 import React from "react";
 
-import { Card, Box, Typography, Button, ListItemIcon } from "@mui/material";
+import {
+  Card,
+  Box,
+  Typography,
+  Button,
+  ListItemIcon,
+  Divider,
+} from "@mui/material";
 import GroupButton from "./GroupButton";
+import { addEllipsis } from "../utils.js/common-utils";
 
 function CartItem({ item }) {
   const fassured =
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png";
   console.log(item);
   return (
-    <Card>
-      <Box>
+    <Card className="m-0 bg-white px-2 pb-0 pt-5 md:px-10">
+      <Box className="flex flex-row py-5 px-2">
         <img src={item.url} className="h-[110px]" alt="item" />
-        <GroupButton />
-      </Box>
-      {/* <Box style={{ margin: 20 }}>
-        <Typography>{addEllipsis(item.title.longTitle)}</Typography> 
-        <Typography>
-          Seller:RetailNet
-          <span>
+        <Box>
+          <Typography className="mx-3 mt-3 mb-1 text-sm font-medium ">
+            {addEllipsis(item.title.longTitle)}
+          </Typography>
+          <Typography className="mx-3 flex text-xs text-[#87898b]">
+            {item.tagline}
+          </Typography>
+          <Typography className="mx-3 flex text-xs text-[#87898b]">
+            Seller: RetailNet
             <img
               src={fassured}
               style={{ width: 50, marginLeft: 10 }}
               alt="item"
+              className=" object-scale-down"
             />
-          </span>
-        </Typography>
-        <Typography style={{ margin: "20px 0" }}>
-          <Typography component="span">₹{item.price.cost}</Typography>
-          &nbsp;&nbsp;&nbsp;
-          <Typography component="span">
-            <strike>₹{item.price.mrp}</strike>
           </Typography>
-          &nbsp;&nbsp;&nbsp;
-          <Typography component="span">{item.price.discount} off</Typography>
-        </Typography>
-        <Button onClick={() => removeItemFromCart(item.id)}>Remove</Button>
-      </Box> */}
+          <Box className="ml-3 mr-1 mt-3 flex items-center space-x-3">
+            <Typography className="text-xs text-[#87898b]">
+              <strike>₹{item.price.mrp}</strike>
+            </Typography>
+            <Typography className="text-lg font-medium">
+              ₹{item.price.cost}
+            </Typography>
+            <Typography className="text-sm font-medium text-[#388e3c]">
+              {item.price.discount} off
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box>
+        <GroupButton />
+        {/* <Button onClick={() => removeItemFromCart(item.id)}>Remove</Button> */}
+      </Box>
+      <Divider className="py-3" />
     </Card>
   );
 }
