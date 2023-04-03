@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // components
 import {
@@ -10,6 +11,7 @@ import {
   Drawer,
   List,
   ListItem,
+  Badge,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Menu } from "@mui/icons-material";
@@ -22,6 +24,10 @@ import MobileButtons from "./MobileButtons";
 function CustomButtons() {
   const [open, setOpen] = useState(false);
   const { account, setAccount } = useContext(DataContext);
+
+  const cartDetails = useSelector((state) => state.cart);
+  const { cartItems } = cartDetails;
+
   // const [drawer, setDrawer] = useState(false);
 
   // const handleOpen = () => {
@@ -65,7 +71,9 @@ function CustomButtons() {
       </a>
       <Box className="ml-5 flex flex-row items-center">
         <Link to={"/cart"} className="flex items-center">
-          <ShoppingCartIcon className="h-5 " />
+          <Badge badgeContent={cartItems?.length} color="success">
+            <ShoppingCartIcon className="h-5 " />
+          </Badge>
 
           <Box component="span" className="mobInvisible font-medium">
             Cart

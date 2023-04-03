@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, addToCart } from "../../redux/actions/cartActions";
 import CartItem from "./CartItem";
 import Price from "./Price";
+import EmptyCart from "./EmptyCart";
 
 import { Box, Button, Grid, Typography } from "@mui/material";
 
@@ -22,7 +23,6 @@ function Cart() {
   const removeItemFromCart = (id) => {
     dispatch(removeFromCart(id));
   };
-  console.log(cartItems);
   // const buyNow = async () => {
   //   let response = await payUsingPaytm({
   //     amount: 500,
@@ -61,7 +61,9 @@ function Cart() {
               </Grid>
             </Grid>
           ) : (
-            <Box>Empty</Box>
+            <Box>
+              <EmptyCart />
+            </Box>
           )}
         </Box>
       </Box>

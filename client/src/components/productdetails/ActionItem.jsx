@@ -6,6 +6,8 @@ import { addToCart } from "../../redux/actions/cartActions";
 import { Box, Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
+import { payUsingPaytm } from "../../sevice/api";
+import { post } from "../../utils/paytm";
 
 function ActionItem({ product }) {
   const [quantity, setQuantity] = useState(1);
@@ -15,6 +17,18 @@ function ActionItem({ product }) {
   const addItemToCart = () => {
     dispatch(addToCart(id, quantity));
     navigate("/cart");
+  };
+
+  const buyNow = async () => {
+    let response = await payUsingPaytm({
+      amount: 500,
+      email: "ankushdebnath00@gmail.com",
+    });
+    let information = {
+      action: "https://securegw-stage.paytm.in/order/process",
+      params: response,
+    };
+    post(information);
   };
 
   return (
@@ -34,6 +48,7 @@ function ActionItem({ product }) {
         <Button
           variant="contained"
           className="h-[47px] w-[250px] max-w-[46%] rounded-sm bg-[#fb641b] text-xs xl:h-[55px] xl:text-sm"
+          onClick={() => buyNow()}
         >
           <FlashOnIcon className="mr-2" />
           Buy Now

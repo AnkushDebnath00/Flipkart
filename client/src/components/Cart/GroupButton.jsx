@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { ButtonGroup, Button } from "@mui/material";
 
-const GroupedButton = () => {
+const GroupButton = () => {
   const [counter, setCounter] = useState(1);
 
   const handleIncrement = () => {
@@ -14,7 +14,7 @@ const GroupedButton = () => {
   };
 
   return (
-    <ButtonGroup>
+    <ButtonGroup className="mx-3 p-1">
       <Button
         onClick={() => handleDecrement()}
         disabled={counter === 0}
@@ -30,4 +30,4 @@ const GroupedButton = () => {
   );
 };
 
-export default GroupedButton;
+export default GroupButton;
