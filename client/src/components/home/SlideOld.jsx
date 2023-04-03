@@ -25,11 +25,11 @@ function SlideOld({ heading, products, timer, sub, idd }) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 8,
+      items: 7,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6,
+      items: 5,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -37,7 +37,7 @@ function SlideOld({ heading, products, timer, sub, idd }) {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
+      items: 1,
     },
   };
   if (timer) {
@@ -45,11 +45,11 @@ function SlideOld({ heading, products, timer, sub, idd }) {
       superLargeDesktop: {
         // the naming can be any, depends on you.
         breakpoint: { max: 4000, min: 3000 },
-        items: 7,
+        items: 6,
       },
       desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 5,
+        items: 4,
       },
       tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -63,7 +63,7 @@ function SlideOld({ heading, products, timer, sub, idd }) {
   }
 
   return (
-    <Box className="mx-auto mt-2 flex h-[280px] w-[99%] flex-col bg-white shadow-xl md:h-[380px]">
+    <Box className="mx-auto mt-2 flex h-[300px] w-[99%] flex-col bg-white shadow-xl md:h-[400px]">
       <Box
         className={`mt-2 flex flex-row items-center justify-between bg-contain bg-bottom bg-no-repeat px-4 py-2 text-[1.25rem] font-normal xl:text-[1.6rem]`}
       >
@@ -111,7 +111,7 @@ function SlideOld({ heading, products, timer, sub, idd }) {
                 <img
                   src={data.url}
                   alt="bannerImage"
-                  className="contain h-[100px] w-auto transition-all hover:scale-105 md:h-[150px]"
+                  className="contain h-[110px] w-auto transition-all hover:scale-105 md:h-[180px]"
                 />
                 <Box className="flex w-full flex-col items-center justify-end">
                   <Typography className="mt-3 text-center text-sm md:mt-6">

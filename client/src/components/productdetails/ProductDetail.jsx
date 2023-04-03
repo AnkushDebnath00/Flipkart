@@ -23,7 +23,7 @@ function ProductDetail() {
     }
   }, [dispatch, id, product, loading]);
 
-  console.log(product);
+  // console.log(product);
   return (
     <>
       {/* {loading && <Loader />} */}
@@ -50,7 +50,8 @@ function ProductDetail() {
               />
             </Box>
             <Typography className="text-sm font-medium text-[#388e3c]">
-              Extra ₹{(product.price.mrp - product.price.cost) / 3} off
+              Extra ₹{Math.floor((product.price.mrp - product.price.cost) / 3)}{" "}
+              off
             </Typography>
             <Box className="my-2 flex flex-row items-center space-x-2">
               <Typography className="text-2xl font-medium ">

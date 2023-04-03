@@ -35,11 +35,11 @@ function Slide({ heading, products, bgurl, idd }) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 7,
+      items: 6,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -54,7 +54,7 @@ function Slide({ heading, products, bgurl, idd }) {
   return (
     <Box
       id={`${idd}`}
-      className="mx-auto mt-2 flex h-[250px] w-[99%] flex-row md:h-[350px]"
+      className="mx-auto mt-2 flex h-[270px] w-[99%] flex-row md:h-[370px]"
     >
       {/* <Box
         className="h-10 max-w-[25%] bg-[url('https://rukminim1.flixcart.com/fk-p-flap/278/278/image/7593e7b6640822c1.jpg?q=90')] bg-cover bg-bottom bg-no-repeat
@@ -95,7 +95,7 @@ function Slide({ heading, products, bgurl, idd }) {
                 <img
                   src={data.url}
                   alt="bannerImage"
-                  className="contain h-[100px] w-auto transition-all hover:scale-105 md:h-[150px]"
+                  className="contain h-[110px] w-auto transition-all hover:scale-105 md:h-[180px]"
                 />
                 <Box className="flex w-full flex-col items-center justify-end">
                   <Typography className="mt-3 text-center text-sm md:mt-6">

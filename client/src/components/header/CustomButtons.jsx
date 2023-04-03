@@ -1,15 +1,46 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+
 // components
-import { Box, Button, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+} from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Menu } from "@mui/icons-material";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { DataContext } from "../../context/DataProvider";
 import LoginBox from "../login/LoginBox";
 import Profile from "./Profile";
+import MobileButtons from "./MobileButtons";
 
 function CustomButtons() {
   const [open, setOpen] = useState(false);
   const { account, setAccount } = useContext(DataContext);
+  // const [drawer, setDrawer] = useState(false);
+
+  // const handleOpen = () => {
+  //   setDrawer(true);
+  // };
+  // const handleClose = () => {
+  //   setDrawer(false);
+  // };
+
+  // const list = () => (
+  //   <Box>
+  //     <List>
+  //       <ListItem button>
+  //         <MobileButtons />
+  //       </ListItem>
+  //     </List>
+  //   </Box>
+  // );
+
   return (
     <Box className="flex flex-row items-center">
       {account ? (
@@ -23,16 +54,34 @@ function CustomButtons() {
           Login
         </Button>
       )}
-      <Typography className=" mobInvisible">Become a Seller</Typography>
-      <Typography className=" mobInvisible ml-5">More</Typography>
+      <Typography className=" mobInvisible md:mx-2 xl:mx-5">
+        Become a Seller
+      </Typography>
+      <Typography className=" mobInvisible ml-5 md:mx-2 xl:mx-5">
+        More
+      </Typography>
       <a href="https://goo.gl/kY1meC" className="mobVisible">
         <AddBoxIcon />
       </a>
-      <Box className="ml-5 flex flex-row">
-        <ShoppingCartIcon className="h-5 " />
-        <Box component="span" className="mobInvisible font-bold">
-          Cart
-        </Box>
+      <Box className="ml-5 flex flex-row items-center">
+        <Link to={"/cart"} className="flex items-center">
+          <ShoppingCartIcon className="h-5 " />
+
+          <Box component="span" className="mobInvisible font-medium">
+            Cart
+          </Box>
+        </Link>
+
+        {/* <IconButton
+          color="inherit"
+          className="ml-5 md:hidden"
+          onClick={handleOpen}
+        >
+          <Menu />
+        </IconButton>
+        <Drawer anchor="right" open={drawer} onClose={handleClose}>
+          {list()}
+        </Drawer> */}
       </Box>
       <LoginBox open={open} setOpen={setOpen} setAccount={setAccount} />
     </Box>

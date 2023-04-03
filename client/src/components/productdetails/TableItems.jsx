@@ -46,8 +46,8 @@ function TableItems({ rating, product }) {
           <TableCell className="space-y-3 border-none">
             <Box className="flex flex-row items-center space-x-2 font-semibold text-[#2874f0]">
               <span>IndiFlashMart </span>
-              <span className="flex h-5 w-10 items-center justify-center rounded-xl bg-[#2874f0] px-1 text-xs text-white">
-                {rating} <StarIcon className="text-xs" />
+              <span className="flex h-5 w-10 items-center justify-center rounded-full bg-[#2874f0] px-1 text-xs text-white">
+                {Math.floor(rating) + 0.2} <StarIcon className="text-xs" />
               </span>
             </Box>
             <ul type="disc" className="space-y-2">

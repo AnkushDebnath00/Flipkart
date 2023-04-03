@@ -15,7 +15,7 @@ function Header() {
     >
       <Toolbar className="h-[56px] w-[100%] justify-between md:justify-center">
         <Box className="flex flex-row items-center justify-center">
-          <Box className="flex flex-col">
+          <Box className="flex flex-col xl:mx-5">
             <Link to="/">
               <img
                 src={logoUrl}
